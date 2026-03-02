@@ -6,8 +6,22 @@ body {
 
 
 
-h1, h2, h3 {
+h1 {
+    display: flex;
+    justify-content: center;
+    background-color: green;
+    padding: 2px;
+}
+
+h2, h3 {
     text-align: center;
+}
+
+img{
+    display: block;
+    margin: auto;
+    width: 500px;
+    height: auto;
 }
 
 label {
@@ -44,9 +58,13 @@ button {
 
 button:hover {
     text-decoration: underline;
+    font-weight: bold;
+    font-size: larger;
 }
 
 .navbar {
+    display: flex;
+    justify-content: center;
     background-color: green;
     padding: 15px;
     text-align: center;
@@ -55,11 +73,44 @@ button:hover {
 }
 
 .navbar a {
+    font-family: 'Oswald', sans-serif;
     color: white;
     text-decoration: none;
-    margin: 0 50px;
+    margin: 0 10px;
 }
 
 .navbar a:hover {
     text-decoration: underline;
+    font-weight: bold;
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.highlight {
+    background-color: yellow;
+    text-decoration: underline;
+    padding: 1%;
+
+}
+
+.blue-box {
+    width: 40px;
+    height: 40px;
+    background-color: blue; /* change per box */
+}
+
+.indigo-box {
+    width: 40px;
+    height: 40px;
+    background-color: indigo; /* change per box */
+}
+
+.violet-box {
+    width: 40px;
+    height: 40px;
+    background-color: violet; /* change per box */
 }
