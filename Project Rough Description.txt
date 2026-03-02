@@ -1,0 +1,25 @@
+WEB AND DATABASE PROGRAMMING PROJECT.
+
+THis will be a journaling organizer website. The main functionality of this website is 
+to create an organized database where daily journaling entires can be stored. From this,
+They can be updated in varying orders of importance.
+
+
+a. What problem does your app solve or what purpose does it serve?
+
+The app solves the missed utility of a paper journal. A journal is a log of personal data, there should be
+an organized way of processing the data that is entered into a journal. This could be listing the events
+that happened that day, and using algorithms to parse journal entries for data insights into your life.
+
+
+b. Who is the intended user?
+
+The intended user is anyone who intends to journal frequenctly. The idea being that future journal entires
+can be more beneficial to the user if they can parse through their previous entries
+
+
+c.  What actions will users be able to perform (e.g., sign up, add items, search, comment, etc.)?
+
+User will be able to sign up for the website. They will be able to upload journal entreis to the cloud for 
+personal use. Potentially, there will be a social feature, where people can post journal entries for other people
+to read. 
