@@ -15,4 +15,4 @@ and store personal journal entries organized by category.
 `<CATEGORY> <may> <contain> <any number> <JOURNAL_ENTRY>`
 
 ## ER Diagram
-![ERD Diagram](ER_Diagram.png)
+![ERD Diagram](ER_Diagram.PNG)
