@@ -13,9 +13,9 @@ and store personal journal entries organized by category.
 
 ## ER Diagram
 This is the entity relationship diagram for web-database design
-![ERD Diagram](ER_Diagram.png)
+![ERD Diagram](ER_Diagram.PNG)
 
 
 ## Relationship Diagram
 This is the relationship diagram for creating the relations between databases
-![Relations_Diagram](Relations_Diagram.png)
+![Relations_Diagram](Relations_Diagram.PNG)
