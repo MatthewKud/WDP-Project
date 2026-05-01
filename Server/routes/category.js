@@ -1,7 +1,7 @@
-const express = require('express');
-const Category = require('../models/category');
-const router = express.Router();
-
+const express = require('express')
+const Category = require('../models/category')
+const router = express.Router()
+ 
 router.get('/getAllCategories', async (req, res) => {
     try {
         const categories = await Category.getAllCategories()
@@ -9,6 +9,6 @@ router.get('/getAllCategories', async (req, res) => {
     } catch (err) {
         res.status(401).send({message: err.message})
     }
-});
-
-module.exports = router;
+})
+ 
+module.exports = router

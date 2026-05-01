@@ -1,7 +1,7 @@
-const express = require('express');
-const User = require('../models/user');
-const router = express.Router();
-
+const express = require('express')
+const User = require('../models/user')
+const router = express.Router()
+ 
 router.get('/getAllUsers', async (req, res) => {
     try {
         const users = await User.getAllUsers()
@@ -9,6 +9,6 @@ router.get('/getAllUsers', async (req, res) => {
     } catch (err) {
         res.status(401).send({message: err.message})
     }
-});
-
-module.exports = router;
+})
+ 
+module.exports = router
