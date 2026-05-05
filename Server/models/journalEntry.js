@@ -1,4 +1,4 @@
-const { con, query } = require('./db_connect');
+const con = require('./db_connect');
  
 async function createJournalEntryTable() {
     let sql = `
@@ -13,7 +13,7 @@ async function createJournalEntryTable() {
             CONSTRAINT fk_Category FOREIGN KEY (CategoryID) REFERENCES Category(CategoryID)
         );
     `
-    await query(sql)
+    await con.query(sql)
 }
 createJournalEntryTable()
  

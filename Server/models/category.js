@@ -1,4 +1,4 @@
-const { con, query } = require('./db_connect');
+const con = require('./db_connect');
  
 async function createCategoryTable() {
     let sql = `
@@ -8,7 +8,7 @@ async function createCategoryTable() {
             CONSTRAINT pk_Category PRIMARY KEY (CategoryID)
         );
     `
-    await query(sql)
+    await con.query(sql)
 }
 createCategoryTable()
  

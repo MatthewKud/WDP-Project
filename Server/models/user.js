@@ -13,7 +13,7 @@ async function createUserTable() {
     `
     await con.query(sql) //use con.query
 }
-createUserTable()
+//createUserTable()
  
 async function getAllUsers() {
     let sql = `
