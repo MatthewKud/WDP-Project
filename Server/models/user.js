@@ -1,4 +1,4 @@
-const { con, query } = require('./db_connect');
+const con = require('./db_connect'); // update this
  
 async function createUserTable() {
     let sql = `
@@ -11,7 +11,7 @@ async function createUserTable() {
             CONSTRAINT pk_user PRIMARY KEY (UserID)
         );
     `
-    await query(sql)
+    await con.query(sql) //use con.query
 }
 createUserTable()
  
