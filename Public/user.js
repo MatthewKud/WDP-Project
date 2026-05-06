@@ -1,17 +1,4 @@
-async function fetchData(route = '', data = {}, methodType) {
-    const response = await fetch(`http://localhost:3500${route}`, {
-        method: methodType,
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-    });
-    if (response.ok) {
-        return await response.json();
-    } else {
-        throw await response.json();
-    }
-}
+import { fetchData, setCurrentUser } from './main.js'
 
 class User {
     constructor(firstName, lastName, userName, password) {
@@ -22,7 +9,6 @@ class User {
     }
 }
 
-// Register form
 const registerForm = document.getElementById("registerForm");
 
 if (registerForm) {
@@ -39,6 +25,7 @@ if (registerForm) {
         fetchData('/users/register', newUser, "POST")
         .then(data => {
             if (!data.message) {
+                setCurrentUser(data)
                 window.location.href = "post.html"
             }
         })
@@ -49,7 +36,6 @@ if (registerForm) {
     });
 }
 
-// Login form
 const loginForm = document.getElementById("loginForm");
 
 if (loginForm) {
@@ -64,6 +50,7 @@ if (loginForm) {
         fetchData('/users/login', loginUser, "POST")
         .then(data => {
             if (!data.message) {
+                setCurrentUser(data)
                 window.location.href = "post.html"
             }
         })

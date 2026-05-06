@@ -5,21 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>postPageMatthewKudlinski</title>
     <link rel="stylesheet" href="style.css">
-
-    <!-- This is to import Oswald font-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
 </head>
-
 <body>
-    <nav class="navbar">
-        <a href="login.html">Home</a>
-        <a href="register.html">Register</a>
-        <a href="post.html">Journal</a>
-        <a href="cats.html">Cats?</a>
-        
-    </nav>
+    <nav class="navbar"></nav>
 
     <div class="header-container">
         <div class="blue-box"></div>
@@ -30,7 +21,7 @@
         <div class="indigo-box"></div>
         <div class="blue-box"></div>
     </div>
-    <h2> Old Dogs and <span class ="highlight"> New</span> Tricks</h2>
+    <h2> Old Dogs and <span class="highlight"> New</span> Tricks</h2>
     <hr>
     <h3> Once upon a time...</h3>
     <p>There were people who came up with journaling. They figured out that
@@ -39,18 +30,18 @@
     </p>
     <hr>
     <h3>Create a post on Journaling 3005</h3>
-         <form id="postForm">
+    <form id="postForm">
+        <label>Journal Entry</label>
+        <textarea id="journal_entry" class="journal-input"></textarea>
 
-            <label>Jounral Entry</label>
-            <textarea id="journal_entry" class="journal-input"></textarea>
-            
-            <label for="category">Category</label>
-            <input type="text" id="category" name="category" placeholder="e.g. Personal, Work, School">
-            
-            <p class="error"></p>
+        <label for="category">Category</label>
+        <input type="text" id="category" name="category" placeholder="e.g. Personal, Work, School">
 
-            <button type="submit">Post</button>
-        </form>
-    <script src="post.js"></script>
+        <p class="error"></p>
+
+        <button type="submit">Post</button>
+    </form>
+    <script type="module" src="main.js"></script>
+    <script type="module" src="post.js"></script>
 </body>
 </html>

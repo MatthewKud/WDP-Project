@@ -5,21 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>regiesterPageMatthewKudlinski</title>
     <link rel="stylesheet" href="style.css">
-
-    <!-- This is to import Oswald font-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
 </head>
-
 <body>
-    <nav class="navbar">
-        <a href="login.html">Home</a>
-        <a href="register.html">Register</a>
-        <a href="post.html">Journal</a>
-        <a href="cats.html">Cats?</a>
-
-    </nav>
+    <nav class="navbar"></nav>
 
     <div class="header-container">
         <div class="blue-box"></div>
@@ -30,7 +21,7 @@
         <div class="indigo-box"></div>
         <div class="blue-box"></div>
     </div>
-    <h2> Old Dogs and <span class ="highlight"> New</span> Tricks</h2>
+    <h2> Old Dogs and <span class="highlight"> New</span> Tricks</h2>
     <hr>
     <h3> Once upon time...</h3>
     <p>There were people who came up with journaling. They figured out that
@@ -39,24 +30,24 @@
     </p>
     <hr>
     <h3>Register for Journaling 3005</h3>
-         <form id="registerForm">
-            <label for="first name">First Name</label>
-            <input type="text" id="first_name" name="first_name" required>
+    <form id="registerForm">
+        <label for="first name">First Name</label>
+        <input type="text" id="first_name" name="first_name" required>
 
-            <label for="last name">Last Name</label>
-            <input type="text" id="last_name" name="last_name" required>
+        <label for="last name">Last Name</label>
+        <input type="text" id="last_name" name="last_name" required>
 
-            <label for="username">Username</label>
-            <input type="text" id="username" name="username">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username">
 
-            <label for="password">Password</label>
-            <input type="password" id="password" name="password" required>
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required>
 
-            <p class="error"></p>
+        <p class="error"></p>
 
-            <button type="submit">Create Account</button>
-         </form>
-
-    <script src="user.js"></script>
+        <button type="submit">Create Account</button>
+    </form>
+    <script type="module" src="main.js"></script>
+    <script type="module" src="user.js"></script>
 </body>
 </html>
