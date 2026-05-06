@@ -1,18 +1,31 @@
+async function fetchData(route = '', data = {}, methodType) {
+    const response = await fetch(`http://localhost:3500${route}`, {
+        method: methodType,
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    });
+    if (response.ok) {
+        return await response.json();
+    } else {
+        throw await response.json();
+    }
+}
 
-
-class User{
-    constructor(firstName, lastName, userName, password){
+class User {
+    constructor(firstName, lastName, userName, password) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.userName = userName;
+        this.username = userName;
         this.password = password;
     }
 }
 
-//Register form
+// Register form
 const registerForm = document.getElementById("registerForm");
 
-if (registerForm){
+if (registerForm) {
     registerForm.addEventListener("submit", function(e) {
         e.preventDefault();
 
@@ -22,7 +35,17 @@ if (registerForm){
         const password = document.getElementById("password").value;
 
         const newUser = new User(firstName, lastName, userName, password);
-        console.log(newUser);
+
+        fetchData('/users/register', newUser, "POST")
+        .then(data => {
+            if (!data.message) {
+                window.location.href = "post.html"
+            }
+        })
+        .catch(err => {
+            let errorSection = document.querySelector("#registerForm .error")
+            errorSection.innerText = err.message
+        })
     });
 }
 
@@ -37,6 +60,16 @@ if (loginForm) {
         const password = document.getElementById("password").value;
 
         const loginUser = new User(null, null, userName, password);
-        console.log(loginUser);
+
+        fetchData('/users/login', loginUser, "POST")
+        .then(data => {
+            if (!data.message) {
+                window.location.href = "post.html"
+            }
+        })
+        .catch(err => {
+            let errorSection = document.querySelector("#loginForm .error")
+            errorSection.innerText = err.message
+        })
     });
 }
