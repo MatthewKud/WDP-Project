@@ -29,4 +29,22 @@ router.post('/login', async (req, res) => {
     }
 })
 
+router.put('/updateUser', async (req, res) => {
+    try {
+        await User.updateUser(req.body)
+        res.send({message: 'user updated successfully'})
+    } catch (err) {
+        res.status(401).send({message: err.message})
+    }
+})
+
+router.delete('/deleteUser/:userID', async (req, res) => {
+    try {
+        await User.deleteUser(req.params.userID)
+        res.send({message: 'user deleted successfully'})
+    } catch (err) {
+        res.status(401).send({message: err.message})
+    }
+})
+
 module.exports = router

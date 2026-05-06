@@ -1,35 +1,37 @@
-async function fetchData(route = '', data = {}, methodType) {
-    const response = await fetch(`http://localhost:3500${route}`, {
-        method: methodType,
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-    });
-    if (response.ok) {
-        return await response.json();
-    } else {
-        throw await response.json();
-    }
-}
+import { fetchData, getCurrentUser } from './main.js'
 
 class JournalEntry {
-    constructor(content, category) {
+    constructor(content, userID, categoryID) {
         this.content = content;
-        this.category = category;
+        this.userID = userID;
+        this.categoryID = categoryID;
     }
 }
 
 const postForm = document.getElementById("postForm");
 
 if (postForm) {
-    postForm.addEventListener("submit", function(e) {
+    postForm.addEventListener("submit", async function(e) {
         e.preventDefault();
 
         const content = document.getElementById("journal_entry").value;
-        const category = document.getElementById("category").value;
+        const categoryName = document.getElementById("category").value;
 
-        const newEntry = new JournalEntry(content, category);
-        console.log(newEntry);
+        const currentUser = getCurrentUser();
+
+        const category = await fetchData('/categories/createCategory', { categoryName: categoryName }, "POST")
+
+        const newEntry = new JournalEntry(content, currentUser.UserID, category.CategoryID);
+
+        fetchData('/journalEntries/createEntry', newEntry, "POST")
+        .then(data => {
+            if (!data.message || data.message === 'Entry created successfully') {
+                window.location.href = "post.html"
+            }
+        })
+        .catch(err => {
+            let errorSection = document.querySelector("#postForm .error")
+            errorSection.innerText = err.message
+        })
     });
 }

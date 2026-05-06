@@ -1,5 +1,5 @@
 const con = require('./db_connect');
- 
+
 async function createJournalEntryTable() {
     let sql = `
         CREATE TABLE IF NOT EXISTS Journal_Entry (
@@ -16,12 +16,37 @@ async function createJournalEntryTable() {
     await con.query(sql)
 }
 createJournalEntryTable()
- 
+
 async function getAllEntries() {
     let sql = `
         SELECT * FROM Journal_Entry;
     `
     return await con.query(sql)
 }
- 
-module.exports = { getAllEntries }
+
+async function createEntry(entry) {
+    let sql = `
+        INSERT INTO Journal_Entry (Content, UserID, CategoryID)
+        VALUES (?, ?, ?)
+    `
+    await con.query(sql, [entry.content, entry.userID, entry.categoryID])
+}
+
+async function updateEntry(entry) {
+    let sql = `
+        UPDATE Journal_Entry
+        SET Content = ?, CategoryID = ?
+        WHERE EntryID = ?
+    `
+    await con.query(sql, [entry.content, entry.categoryID, entry.entryID])
+}
+
+async function deleteEntry(entryID) {
+    let sql = `
+        DELETE FROM Journal_Entry
+        WHERE EntryID = ?
+    `
+    await con.query(sql, [entryID])
+}
+
+module.exports = { getAllEntries, createEntry, updateEntry, deleteEntry }

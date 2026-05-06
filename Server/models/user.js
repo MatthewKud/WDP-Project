@@ -27,7 +27,7 @@ async function userExists(user) {
 
 async function register(user) {
     let cuser = await userExists(user)
-    if (cuser) throw Error("Username already in use!")
+    if (cuser) throw Error("username already in use")
 
     let hashedPassword = await bcrypt.hash(user.password, 10)
 
@@ -42,10 +42,10 @@ async function register(user) {
 
 async function login(user) {
     let cuser = await userExists(user)
-    if (!cuser) throw Error("Username does not exist!")
+    if (!cuser) throw Error("Username does not exist")
 
     let match = await bcrypt.compare(user.password, cuser.Password)
-    if (!match) throw Error("Password incorrect!")
+    if (!match) throw Error("password incorrect")
 
     return cuser
 }
@@ -57,4 +57,21 @@ async function getAllUsers() {
     return await con.query(sql)
 }
 
-module.exports = { getAllUsers, register, login }
+async function updateUser(user) {
+    let sql = `
+        UPDATE Users
+        SET FirstName = ?, LastName = ?, UserName = ?
+        WHERE UserID = ?
+    `
+    await con.query(sql, [user.firstName, user.lastName, user.username, user.userID])
+}
+
+async function deleteUser(userID) {
+    let sql = `
+        DELETE FROM Users
+        WHERE UserID = ?
+    `
+    await con.query(sql, [userID])
+}
+
+module.exports = { getAllUsers, register, login, updateUser, deleteUser }
